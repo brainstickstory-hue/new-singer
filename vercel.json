@@ -1,22 +1,6 @@
 {
   "version": 2,
   "name": "singer-website",
-  "builds": [
-    {
-      "src": "**/*.html",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "assets/**",
-      "use": "@vercel/static"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/$1"
-    }
-  ],
   "cleanUrls": true,
   "trailingSlash": false
 }
