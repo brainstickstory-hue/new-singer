@@ -403,6 +403,16 @@ main {
     padding: var(--spacing-sm);
 }
 
+/* Performance videos description center alignment */
+#performances-videos .card-content {
+    text-align: center;
+}
+
+#performances-videos .card-content p {
+    text-align: center !important;
+    margin: 0 auto;
+}
+
 .card-title {
     font-size: 1.125rem;
     font-weight: 600;

@@ -1,104 +1,34 @@
 {
-  "upcoming": [
+  "videos": [
     {
-      "id": "perf-1",
-      "title": "발렌타인 스페셜 콘서트",
-      "date": "2026년 2월 14일 (금)",
-      "time": "19:00",
-      "venue": "올림픽공원 체조경기장",
-      "description": "특별한 발렌타인데이를 음악과 함께 보내세요. 사랑하는 사람과 함께하는 로맨틱한 공연입니다.",
-      "status": "예매 오픈",
-      "statusColor": "#e74c3c",
+      "id": "video-1",
       "youtubeUrl": "https://www.youtube.com/watch?v=hSRjlf6iX8I",
-      "thumbnail": "assets/images/new-album.png",
-      "prices": {
-        "vip": "150,000원",
-        "r": "120,000원",
-        "s": "90,000원"
-      },
-      "links": {
-        "ticket": "#",
-        "info": "#"
-      }
+      "description": "엄지애 고양 콘서트(250719)"
     },
     {
-      "id": "perf-2",
-      "title": "부산 단독 콘서트",
-      "date": "2026년 3월 20일 (토)",
-      "time": "18:00",
-      "venue": "벡스코 오디토리움",
-      "description": "부산에서 만나는 특별한 음악의 밤. 전국 투어의 시작을 알리는 공연입니다.",
-      "status": "예매 예정",
-      "statusColor": "#3498db",
-      "image": "assets/images/performance-2.jpg",
-      "prices": {
-        "vip": "140,000원",
-        "r": "110,000원",
-        "s": "80,000원"
-      },
-      "links": {
-        "alert": "#"
-      }
+      "id": "video-2",
+      "youtubeUrl": "https://www.youtube.com/watch?v=B_D0B-NFWcs&list=RDB_D0B-NFWcs&start_radio=1",
+      "description": "미국 카네기홀 콘서트"
     },
     {
-      "id": "perf-3",
-      "title": "대구 공연",
-      "date": "2026년 4월 10일 (금)",
-      "time": "19:30",
-      "venue": "대구 엑스코",
-      "description": "대구 팬 여러분과 만나는 소중한 시간. 자세한 정보는 곧 공개됩니다.",
-      "status": "예매 예정",
-      "statusColor": "#3498db",
-      "image": "assets/images/performance-3.jpg",
-      "prices": null,
-      "links": {
-        "alert": "#"
-      }
-    }
-  ],
-  "past": [
-    {
-      "title": "2025 연말 콘서트",
-      "date": "2025년 12월 31일",
-      "venue": "고척스카이돔",
-      "status": "전석 매진",
-      "icon": "🎭"
+      "id": "video-3",
+      "youtubeUrl": "https://www.youtube.com/watch?v=Jsoz311B9Dk&list=RDJsoz311B9Dk&start_radio=1",
+      "description": ""
     },
     {
-      "title": "가을 페스티벌",
-      "date": "2025년 10월 15일",
-      "venue": "올림픽공원",
-      "status": "전석 매진",
-      "icon": "🎪"
+      "id": "video-4",
+      "youtubeUrl": "https://www.youtube.com/watch?v=PjNI__sMVOE&list=RDPjNI__sMVOE&start_radio=1",
+      "description": ""
     },
     {
-      "title": "재즈 페스티벌",
-      "date": "2025년 9월 5일",
-      "venue": "잠실 종합운동장",
-      "status": "특별 출연",
-      "icon": "🎺"
+      "id": "video-5",
+      "youtubeUrl": "https://www.youtube.com/watch?v=1GZcaybl-JM&list=RD1GZcaybl-JM&start_radio=1",
+      "description": ""
     },
     {
-      "title": "오케스트라 협연",
-      "date": "2025년 7월 20일",
-      "venue": "예술의전당",
-      "status": "전석 매진",
-      "icon": "🎻"
-    },
-    {
-      "title": "어쿠스틱 라이브",
-      "date": "2025년 6월 10일",
-      "venue": "블루스퀘어",
-      "status": "전석 매진",
-      "icon": "🎵"
-    },
-    {
-      "title": "봄 콘서트",
-      "date": "2025년 4월 5일",
-      "venue": "올림픽공원 체조경기장",
-      "status": "전석 매진",
-      "icon": "🎤"
+      "id": "video-6",
+      "youtubeUrl": "https://www.youtube.com/watch?v=Zx6btQmdOwQ&list=RDZx6btQmdOwQ&start_radio=1",
+      "description": ""
     }
   ]
 }
-

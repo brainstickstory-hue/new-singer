@@ -68,52 +68,7 @@
         <!-- Latest Album -->
         <section class="section section-alt">
             <div class="section-content" id="latest-album">
-                <!-- 데이터가 JavaScript로 로드됩니다 -->
-                <div style="text-align: center; padding: 2rem; color: hsl(var(--muted-foreground));">
-                    <p>앨범 정보를 불러오는 중...</p>
-                </div>
-                
-                <div class="hero-grid" style="gap: 2rem;">
-                    <div class="card-image" style="border-radius: 8px;">
-                        <img src="assets/images/album-3.jpg" alt="밤의 노래 앨범 커버" onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #667eea 0%, #764ba2 100%)';">
-                    </div>
-                    
-                    <div style="display: flex; flex-direction: column; justify-content: center; gap: 1.5rem;">
-                        <div>
-                            <h2 style="font-family: var(--font-heading); font-size: 2.5rem; margin-bottom: 0.5rem;">밤의 노래</h2>
-                            <p style="color: hsl(var(--muted-foreground)); margin-bottom: 1rem;">
-                                정규 3집 · 2024년 12월 발매
-                            </p>
-                            <p style="color: hsl(var(--muted-foreground)); line-height: 1.6;">
-                                새로운 도전과 실험이 담긴 앨범입니다. 다양한 장르를 넘나들며 
-                                음악적 성장을 보여주는 12곡이 수록되어 있습니다.
-                            </p>
-                        </div>
-                        
-                        <div>
-                            <h3 style="font-weight: 600; margin-bottom: 0.75rem;">수록곡</h3>
-                            <ol style="color: hsl(var(--muted-foreground)); line-height: 1.8; margin-left: 1.25rem;">
-                                <li>시작의 끝 (Intro)</li>
-                                <li>함께 걷는 길 (Title)</li>
-                                <li>봄날의 기억</li>
-                                <li>Midnight Dreams</li>
-                                <li>너에게</li>
-                                <li>별이 빛나는 밤</li>
-                                <li>Journey</li>
-                                <li>마음의 소리</li>
-                                <li>Rain</li>
-                                <li>다시 만날 날</li>
-                                <li>희망의 노래</li>
-                                <li>새로운 시작 (Outro)</li>
-                            </ol>
-                        </div>
-                        
-                        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-                            <a href="#" class="btn btn-primary">스트리밍</a>
-                            <a href="#" class="btn btn-outline">구매하기</a>
-                        </div>
-                    </div>
-                </div>
+                <!-- JSON 데이터로 동적으로 생성됩니다 -->
             </div>
         </section>
 
@@ -123,71 +78,7 @@
                 <h2 class="section-title">이전 앨범</h2>
                 
                 <div class="grid grid-2" style="margin-top: 2rem;" id="previous-albums">
-                    <!-- 데이터가 JavaScript로 로드됩니다 -->
-                        <div class="card-image">
-                            <img src="assets/images/album-2.jpg" alt="계절의 끝 앨범 커버" onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #f093fb 0%, #f5576c 100%)';">
-                        </div>
-                        <div class="card-content">
-                            <h3 class="card-title">계절의 끝</h3>
-                            <p class="card-text">정규 2집 · 2022년 6월</p>
-                            <p style="margin: 1rem 0; color: hsl(var(--muted-foreground)); line-height: 1.6;">
-                                더욱 성숙해진 음악 세계를 담은 두 번째 정규 앨범. 
-                                타이틀곡 '함께'는 음원차트 1위를 기록하며 큰 사랑을 받았습니다.
-                            </p>
-                            <details style="margin-top: 1rem;">
-                                <summary style="cursor: pointer; font-weight: 600; color: hsl(var(--foreground)); padding: 0.5rem 0;">
-                                    수록곡 보기
-                                </summary>
-                                <ol style="margin-top: 0.75rem; color: hsl(var(--muted-foreground)); line-height: 1.8; margin-left: 1.25rem;">
-                                    <li>Overture</li>
-                                    <li>함께 (Title)</li>
-                                    <li>그날의 약속</li>
-                                    <li>Summer Breeze</li>
-                                    <li>너의 목소리</li>
-                                    <li>밤하늘</li>
-                                    <li>Memories</li>
-                                    <li>다시 시작</li>
-                                    <li>계절의 끝</li>
-                                    <li>Epilogue</li>
-                                </ol>
-                            </details>
-                            <div style="margin-top: 1rem;">
-                                <a href="#" class="btn btn-link">스트리밍 ›</a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="card">
-                        <div class="card-image">
-                            <img src="assets/images/album-1.jpg" alt="시작 앨범 커버" onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)';">
-                        </div>
-                        <div class="card-content">
-                            <h3 class="card-title">시작</h3>
-                            <p class="card-text">정규 1집 · 2020년 3월</p>
-                            <p style="margin: 1rem 0; color: hsl(var(--muted-foreground)); line-height: 1.6;">
-                                데뷔 앨범으로 신선한 감성과 뛰어난 보컬 실력으로 
-                                많은 주목을 받았습니다. 신인상 3관왕을 달성했습니다.
-                            </p>
-                            <details style="margin-top: 1rem;">
-                                <summary style="cursor: pointer; font-weight: 600; color: hsl(var(--foreground)); padding: 0.5rem 0;">
-                                    수록곡 보기
-                                </summary>
-                                <ol style="margin-top: 0.75rem; color: hsl(var(--muted-foreground)); line-height: 1.8; margin-left: 1.25rem;">
-                                    <li>Hello World (Intro)</li>
-                                    <li>첫 만남 (Title)</li>
-                                    <li>설렘</li>
-                                    <li>Spring Day</li>
-                                    <li>너를 그리며</li>
-                                    <li>Dream</li>
-                                    <li>함께한 시간</li>
-                                    <li>시작</li>
-                                </ol>
-                            </details>
-                            <div style="margin-top: 1rem;">
-                                <a href="#" class="btn btn-link">스트리밍 ›</a>
-                            </div>
-                        </div>
-                    </article>
+                    <!-- JSON 데이터로 동적으로 생성됩니다 -->
                 </div>
             </div>
         </section>
@@ -198,72 +89,7 @@
                 <h2 class="section-title">싱글 & 미니앨범</h2>
                 
                 <div class="grid grid-3" style="margin-top: 2rem;" id="singles">
-                    <!-- 데이터가 JavaScript로 로드됩니다 -->
-                    <article class="card">
-                        <div class="card-image">
-                            <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center; font-size: 3rem;">🎹</div>
-                        </div>
-                        <div class="card-content">
-                            <h3 class="card-title">겨울 이야기</h3>
-                            <p class="card-text">디지털 싱글 · 2024년 12월</p>
-                            <p class="card-text">겨울을 맞아 발매한 감성 발라드 싱글</p>
-                        </div>
-                    </article>
-                    
-                    <article class="card">
-                        <div class="card-image">
-                            <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); display: flex; align-items: center; justify-content: center; font-size: 3rem;">🎸</div>
-                        </div>
-                        <div class="card-content">
-                            <h3 class="card-title">Summer Vibes</h3>
-                            <p class="card-text">미니앨범 · 2024년 7월</p>
-                            <p class="card-text">여름 특별 미니앨범 (5곡 수록)</p>
-                        </div>
-                    </article>
-                    
-                    <article class="card">
-                        <div class="card-image">
-                            <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); display: flex; align-items: center; justify-content: center; font-size: 3rem;">🎺</div>
-                        </div>
-                        <div class="card-content">
-                            <h3 class="card-title">Collaboration</h3>
-                            <p class="card-text">디지털 싱글 · 2023년 11월</p>
-                            <p class="card-text">유명 프로듀서와의 콜라보레이션</p>
-                        </div>
-                    </article>
-                    
-                    <article class="card">
-                        <div class="card-image">
-                            <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); display: flex; align-items: center; justify-content: center; font-size: 3rem;">🎻</div>
-                        </div>
-                        <div class="card-content">
-                            <h3 class="card-title">봄날</h3>
-                            <p class="card-text">디지털 싱글 · 2023년 3월</p>
-                            <p class="card-text">봄을 맞이하는 희망의 메시지</p>
-                        </div>
-                    </article>
-                    
-                    <article class="card">
-                        <div class="card-image">
-                            <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); display: flex; align-items: center; justify-content: center; font-size: 3rem;">🎤</div>
-                        </div>
-                        <div class="card-content">
-                            <h3 class="card-title">Acoustic Live</h3>
-                            <p class="card-text">라이브 앨범 · 2022년 12월</p>
-                            <p class="card-text">어쿠스틱 라이브 공연 실황</p>
-                        </div>
-                    </article>
-                    
-                    <article class="card">
-                        <div class="card-image">
-                            <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #30cfd0 0%, #330867 100%); display: flex; align-items: center; justify-content: center; font-size: 3rem;">🎧</div>
-                        </div>
-                        <div class="card-content">
-                            <h3 class="card-title">Remix Special</h3>
-                            <p class="card-text">리믹스 앨범 · 2021년 9월</p>
-                            <p class="card-text">인기곡 리믹스 버전 모음</p>
-                        </div>
-                    </article>
+                    <!-- JSON 데이터로 동적으로 생성됩니다 -->
                 </div>
             </div>
         </section>
@@ -274,70 +100,7 @@
                 <h2 class="section-title">뮤직비디오</h2>
                 
                 <div class="grid grid-2" style="margin-top: 2rem;" id="music-videos">
-                    <!-- 데이터가 JavaScript로 로드됩니다 -->
-                    <article class="card video-card">
-                        <div class="card-image">
-                            <img src="assets/images/mv-1.jpg" alt="함께 걷는 길 뮤직비디오" onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #667eea 0%, #764ba2 100%)';">
-                            <div class="video-overlay">
-                                <div class="play-button">
-                                    <div class="play-icon"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-content">
-                            <h3 class="card-title">함께 걷는 길</h3>
-                            <p class="card-text">정규 3집 타이틀곡 · 2024</p>
-                            <p class="card-text">조회수: 5,200,000회</p>
-                        </div>
-                    </article>
-                    
-                    <article class="card video-card">
-                        <div class="card-image">
-                            <img src="assets/images/mv-2.jpg" alt="함께 뮤직비디오" onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #f093fb 0%, #f5576c 100%)';">
-                            <div class="video-overlay">
-                                <div class="play-button">
-                                    <div class="play-icon"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-content">
-                            <h3 class="card-title">함께</h3>
-                            <p class="card-text">정규 2집 타이틀곡 · 2022</p>
-                            <p class="card-text">조회수: 8,900,000회</p>
-                        </div>
-                    </article>
-                    
-                    <article class="card video-card">
-                        <div class="card-image">
-                            <img src="assets/images/mv-3.jpg" alt="첫 만남 뮤직비디오" onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)';">
-                            <div class="video-overlay">
-                                <div class="play-button">
-                                    <div class="play-icon"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-content">
-                            <h3 class="card-title">첫 만남</h3>
-                            <p class="card-text">정규 1집 타이틀곡 · 2020</p>
-                            <p class="card-text">조회수: 12,500,000회</p>
-                        </div>
-                    </article>
-                    
-                    <article class="card video-card">
-                        <div class="card-image">
-                            <img src="assets/images/mv-4.jpg" alt="겨울 이야기 뮤직비디오" onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)';">
-                            <div class="video-overlay">
-                                <div class="play-button">
-                                    <div class="play-icon"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-content">
-                            <h3 class="card-title">겨울 이야기</h3>
-                            <p class="card-text">디지털 싱글 · 2024</p>
-                            <p class="card-text">조회수: 3,100,000회</p>
-                        </div>
-                    </article>
+                    <!-- JSON 데이터로 동적으로 생성됩니다 -->
                 </div>
             </div>
         </section>
@@ -351,34 +114,7 @@
                 </p>
                 
                 <div class="grid grid-4" id="streaming-platforms">
-                    <!-- 데이터가 JavaScript로 로드됩니다 -->
-                    <a href="#" class="card" style="text-decoration: none;">
-                        <div class="card-content text-center">
-                            <div style="font-size: 3rem; margin-bottom: 0.5rem;">🎵</div>
-                            <h3 class="card-title">Spotify</h3>
-                        </div>
-                    </a>
-                    
-                    <a href="#" class="card" style="text-decoration: none;">
-                        <div class="card-content text-center">
-                            <div style="font-size: 3rem; margin-bottom: 0.5rem;">🎶</div>
-                            <h3 class="card-title">Apple Music</h3>
-                        </div>
-                    </a>
-                    
-                    <a href="#" class="card" style="text-decoration: none;">
-                        <div class="card-content text-center">
-                            <div style="font-size: 3rem; margin-bottom: 0.5rem;">📺</div>
-                            <h3 class="card-title">YouTube Music</h3>
-                        </div>
-                    </a>
-                    
-                    <a href="#" class="card" style="text-decoration: none;">
-                        <div class="card-content text-center">
-                            <div style="font-size: 3rem; margin-bottom: 0.5rem;">🎧</div>
-                            <h3 class="card-title">Melon</h3>
-                        </div>
-                    </a>
+                    <!-- JSON 데이터로 동적으로 생성됩니다 -->
                 </div>
             </div>
         </section>

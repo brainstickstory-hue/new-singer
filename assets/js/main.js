@@ -208,120 +208,67 @@
     async function renderPerformancesPage() {
         const data = await loadJSON('assets/data/performances.json');
         if (!data) {
-            showError(document.querySelector('#performances-content'), '공연 정보를 불러올 수 없습니다.');
+            showError(document.querySelector('#performances-videos'), '공연 영상 정보를 불러올 수 없습니다.');
             return;
         }
         
-        // Render Upcoming Performances
-        renderUpcomingPerformances(data.upcoming);
-        
-        // Render Tour Schedule
-        renderTourSchedule(data.tour);
-        
-        // Render Past Performances
-        renderPastPerformances(data.past);
+        // Render Performance Videos
+        renderPerformanceVideos(data.videos);
     }
     
-    function renderUpcomingPerformances(performances) {
-        const container = document.querySelector('#upcoming-performances');
-        if (!container || !performances) return;
+    function renderPerformanceVideos(videos) {
+        const container = document.querySelector('#performances-videos');
+        if (!container || !videos) return;
         
-        const performancesHTML = performances.map(perf => {
-            const pricesHTML = perf.prices ? `
-                <p style="margin-bottom: var(--spacing-xs);">
-                    <strong>💰 가격:</strong> VIP ${perf.prices.vip} / R석 ${perf.prices.r} / S석 ${perf.prices.s}
-                </p>
-            ` : '<p style="margin-bottom: var(--spacing-xs);"><strong>💰 가격:</strong> 미정</p>';
+        // YouTube URL을 embed URL로 변환하는 함수
+        function getYouTubeEmbedUrl(url) {
+            if (!url) return '';
             
-            const linksHTML = perf.links.ticket ? `
-                <a href="${perf.links.ticket}" class="btn btn-primary">티켓 예매</a>
-                <a href="${perf.links.info}" class="btn btn-outline">상세 정보</a>
-            ` : `
-                <button class="btn" disabled style="opacity: 0.6; cursor: not-allowed;">곧 오픈</button>
-                <a href="${perf.links.alert}" class="btn btn-outline">알림 신청</a>
-            `;
+            // 이미 embed URL인 경우
+            if (url.includes('youtube.com/embed/')) {
+                return url;
+            }
+            
+            // 일반 YouTube URL인 경우
+            const videoIdMatch = url.match(/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/);
+            if (videoIdMatch && videoIdMatch[1]) {
+                return `https://www.youtube.com/embed/${videoIdMatch[1]}`;
+            }
+            
+            return '';
+        }
+        
+        const videosHTML = videos.map(video => {
+            const embedUrl = getYouTubeEmbedUrl(video.youtubeUrl);
+            const hasVideo = embedUrl !== '';
             
             return `
-                <article class="card" style="margin-bottom: var(--spacing-md);">
-                    <div class="hero-grid" style="gap: 2rem;">
-                        <div class="card-image" style="height: 300px; border-radius: 8px;" role="img" aria-label="공연 포스터">
-                            <img src="${perf.image}" alt="${perf.title}" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\\'display:flex;align-items:center;justify-content:center;height:100%;font-size:3rem;\\'>🎤</div>';">
-                        </div>
-                        <div class="card-content" style="display: flex; flex-direction: column; justify-content: center;">
-                            <span style="display: inline-block; background-color: ${perf.statusColor}; color: white; padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; width: fit-content; margin-bottom: var(--spacing-xs);">
-                                ${perf.status}
-                            </span>
-                            <h3 style="font-size: 1.75rem; margin-bottom: var(--spacing-xs);">${perf.title}</h3>
-                            
-                            <div style="margin: var(--spacing-sm) 0;">
-                                <p style="margin-bottom: var(--spacing-xs);">
-                                    <strong>📅 날짜:</strong> ${perf.date} ${perf.time}
-                                </p>
-                                <p style="margin-bottom: var(--spacing-xs);">
-                                    <strong>📍 장소:</strong> ${perf.venue}
-                                </p>
-                                ${pricesHTML}
+                <article class="card">
+                    <div class="card-image" style="aspect-ratio: 16 / 9; background-color: hsl(var(--muted)); position: relative; overflow: hidden;">
+                        ${hasVideo ? `
+                            <iframe 
+                                src="${embedUrl}" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen
+                                style="width: 100%; height: 100%; position: absolute; top: 0; left: 0;">
+                            </iframe>
+                        ` : `
+                            <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: hsl(var(--muted-foreground)); font-size: 1.5rem;">
+                                영상 없음
                             </div>
-                            
-                            <p style="color: hsl(var(--muted-foreground)); margin-bottom: var(--spacing-sm);">
-                                ${perf.description}
-                            </p>
-                            
-                            <div style="display: flex; gap: var(--spacing-xs); flex-wrap: wrap;">
-                                ${linksHTML}
-                            </div>
-                        </div>
+                        `}
+                    </div>
+                    <div class="card-content" style="text-align: center; padding: 0.5rem var(--spacing-sm);">
+                        <p style="color: hsl(var(--muted-foreground)); line-height: 1.4; text-align: center; margin: 0; font-size: 0.875rem;">
+                            ${video.description || '설명을 입력해주세요.'}
+                        </p>
                     </div>
                 </article>
             `;
         }).join('');
         
-        container.innerHTML = performancesHTML;
-    }
-    
-    function renderTourSchedule(tour) {
-        const container = document.querySelector('#tour-schedule');
-        if (!container || !tour) return;
-        
-        const tourHTML = tour.map(item => `
-            <article class="card">
-                <div class="card-content">
-                    <h3 class="card-title">${item.city}</h3>
-                    <p class="card-text"><strong>날짜:</strong> ${item.date}</p>
-                    <p class="card-text"><strong>장소:</strong> ${item.venue}</p>
-                    <span style="display: inline-block; background-color: ${item.statusColor}; color: white; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.75rem; margin-top: var(--spacing-xs);">
-                        ${item.status}
-                    </span>
-                </div>
-            </article>
-        `).join('');
-        
-        container.innerHTML = tourHTML;
-    }
-    
-    function renderPastPerformances(past) {
-        const container = document.querySelector('#past-performances');
-        if (!container || !past) return;
-        
-        const pastHTML = past.map(item => `
-            <article class="card">
-                <div class="card-image" role="img" aria-label="공연 사진">
-                    <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 3rem; background: linear-gradient(135deg, hsl(var(--muted)), hsl(var(--border)));">
-                        ${item.icon}
-                    </div>
-                </div>
-                <div class="card-content">
-                    <h3 class="card-title">${item.title}</h3>
-                    <p class="card-text">${item.date}</p>
-                    <p class="card-text">${item.venue}</p>
-                    <p class="card-text" style="color: ${item.status.includes('매진') ? 'var(--secondary-color)' : 'var(--accent-color)'}; font-weight: bold;">
-                        ${item.status}
-                    </p>
-                </div>
-            </article>
-        `).join('');
-        
-        container.innerHTML = pastHTML;
+        container.innerHTML = videosHTML;
     }
 
     // ===================================

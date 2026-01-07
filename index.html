@@ -50,7 +50,7 @@
                     <li><a href="profile.html">프로필</a></li>
                     <li><a href="albums.html">앨범</a></li>
                     <li><a href="gallery.html">갤러리</a></li>
-                    <li><a href="performances.html">공연</a></li>
+                    <li><a href="performances.html">공연 영상</a></li>
                     <li><a href="contact.html">연락하기</a></li>
                 </ul>
             </nav>
@@ -246,10 +246,14 @@
             <div class="section-content-wide">
                 <div class="section-header">
                     <h2 class="section-title">갤러리</h2>
-                    
                 </div>
 
-                <div class="grid grid-2">
+                <div class="gallery-grid-3x2" style="
+                    display: grid;
+                    grid-template-columns: repeat(3, 1fr);
+                    grid-template-rows: repeat(2, 1fr);
+                    gap: 1.5rem;
+                ">
                     <div class="card gallery-card">
                         <div class="card-image" style="aspect-ratio: 1 / 1; overflow: hidden;">
                             <img src="assets/images/1.jpg" alt="갤러리 이미지 1" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #667eea 0%, #764ba2 100%)';">
@@ -270,16 +274,27 @@
                             <img src="assets/images/gallery-4.jpg" alt="갤러리 이미지 4" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)';">
                         </div>
                     </div>
-                    
-                    <div style="display: flex; justify-content: center; align-items: center; width: 100%;">
+                    <div class="card gallery-card">
+                        <div class="card-image" style="aspect-ratio: 1 / 1; overflow: hidden;">
+                            <img src="assets/images/gallery-5.jpg" alt="갤러리 이미지 5" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #feada6 0%, #f5efef 100%)';">
+                        </div>
+                    </div>
+                    <div class="card gallery-card">
+                        <div class="card-image" style="aspect-ratio: 1 / 1; overflow: hidden;">
+                            <img src="assets/images/gallery-6.jpg" alt="갤러리 이미지 6" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #feada6 0%, #f5efef 100%)';">
+                        </div>
+                    </div>
+                    <div style="display: flex; justify-content: center; align-items: center;">
                         <a href="gallery.html" class="btn btn-link" style="display: block; text-align: center; margin: 0 auto;">
                         더 보기
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <line x1="5" y1="12" x2="19" y2="12"></line>
                             <polyline points="12 5 19 12 12 19"></polyline>
                         </svg>
-                    </a>
+                        </a>
+                    </div>
                 </div>
+                <!-- 모바일 환경에서도 항상 3x2 그리드로 고정되도록 한다. 별도의 미디어쿼리 불필요 -->
             </div>
         </section>
 
@@ -293,7 +308,7 @@
 
                 <div class="grid grid-2">
                     <article class="card video-card">
-                        <div class="card-image" style="aspect-ratio: 1 / 1; overflow: hidden; position:relative; background: #000;">
+                        <div class="card-image" style="aspect-ratio: 16 / 9; overflow: hidden; position:relative; background: #000;">
                             <a href="https://www.youtube.com/watch?v=hSRjlf6iX8I&list=PLkcOmq5UT3yMO_ylOinbR5G4Ec0mp5o07" 
                                target="_blank" rel="noopener" 
                                style="display:block; width:100%; height:100%;">
@@ -316,11 +331,14 @@
                     </article>
 
                     <article class="card video-card">
-                        <div class="card-image">
-                            <img src="assets/images/mv-1.jpg" alt="밤의 노래 뮤직비디오" onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #f093fb 0%, #f5576c 100%)';">
-                            <div class="video-overlay">
-                                <div class="play-button">
-                                    <div class="play-icon"></div>
+                        <div class="card-image" style="aspect-ratio: 16 / 9; overflow: hidden; position:relative; background:#000;">
+                            <img src="assets/images/mv-1.jpg" alt="밤의 노래 뮤직비디오" onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #f093fb 0%, #f5576c 100%)';" style="width:100%; height:100%; object-fit:cover; display:block; border-radius: 0.5rem;">
+                            <div class="video-overlay" style="position:absolute;top:0;left:0;right:0;bottom:0;display:flex;justify-content:center;align-items:center;">
+                                <div class="play-button" style="width:64px;height:64px;background:rgba(0,0,0,0.5);border-radius:50%;display:flex;align-items:center;justify-content:center;">
+                                    <svg viewBox="0 0 60 60" width="40" height="40">
+                                        <circle cx="30" cy="30" r="30" fill="rgba(0,0,0,0.6)"/>
+                                        <polygon points="24,18 46,30 24,42" fill="#fff"/>
+                                    </svg>
                                 </div>
                             </div>
                         </div>
@@ -337,7 +355,6 @@
                         <polyline points="12 5 19 12 12 19"></polyline>
                     </svg>
                 </a>
-            </div>
         </section>
 
         <!-- Contact Summary -->
