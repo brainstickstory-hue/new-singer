@@ -70,7 +70,47 @@
                     </div>
 
                     <div class="hero-image">
-                        <img src="assets/images/3.jpg" alt="이지은 프로필" onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, hsl(0 0% 96.1%), hsl(0 0% 89.8%))';">
+                        <img 
+                            src="assets/images/angel.jpeg" 
+                            alt="이지은 프로필" 
+                            class="animated-profile"
+                            onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, hsl(0 0% 96.1%), hsl(0 0% 89.8%))';"
+                            style="animation:
+                                profileFadeInUp 0.85s cubic-bezier(.21,1.01,.47,1.08), /* 흐림->선명 시간을 더 짧게 */
+                                profileSlowZoomIn 6s ease-in-out 0s 1 forwards;
+                            "
+                        >
+                        <style>
+                        @keyframes profileFadeInUp {
+                            0% {
+                                opacity: 0;
+                                transform: translateY(40px) scale(0.98) rotate(-2deg);
+                                filter: blur(10px) brightness(1.07);
+                            }
+                            60% {
+                                opacity: 1;
+                                transform: translateY(-6px) scale(1.015) rotate(1deg);
+                                filter: blur(1.5px) brightness(1);
+                            }
+                            80% {
+                                transform: translateY(0px) scale(1) rotate(0deg);
+                                filter: blur(0px) brightness(1);
+                            }
+                            100% {
+                                opacity: 1;
+                                transform: none;
+                                filter: none;
+                            }
+                        }
+                        @keyframes profileSlowZoomIn {
+                            0% {
+                                transform: scale(1);
+                            }
+                            100% {
+                                transform: scale(1.05);
+                            }
+                        }
+                        </style>
                     </div>
                 </div>
             </div>
