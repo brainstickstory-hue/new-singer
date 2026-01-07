@@ -9,7 +9,8 @@
       "description": "특별한 발렌타인데이를 음악과 함께 보내세요. 사랑하는 사람과 함께하는 로맨틱한 공연입니다.",
       "status": "예매 오픈",
       "statusColor": "#e74c3c",
-      "image": "assets/images/performance-1.jpg",
+      "youtubeUrl": "https://www.youtube.com/watch?v=hSRjlf6iX8I",
+      "thumbnail": "assets/images/new-album.png",
       "prices": {
         "vip": "150,000원",
         "r": "120,000원",
@@ -53,50 +54,6 @@
       "links": {
         "alert": "#"
       }
-    }
-  ],
-  "tour": [
-    {
-      "city": "서울",
-      "date": "2026년 2월 14일",
-      "venue": "올림픽공원 체조경기장",
-      "status": "예매 가능",
-      "statusColor": "#27ae60"
-    },
-    {
-      "city": "부산",
-      "date": "2026년 3월 20일",
-      "venue": "벡스코 오디토리움",
-      "status": "예매 예정",
-      "statusColor": "#3498db"
-    },
-    {
-      "city": "대구",
-      "date": "2026년 4월 10일",
-      "venue": "대구 엑스코",
-      "status": "예매 예정",
-      "statusColor": "#3498db"
-    },
-    {
-      "city": "광주",
-      "date": "2026년 4월 25일",
-      "venue": "김대중컨벤션센터",
-      "status": "준비 중",
-      "statusColor": "#95a5a6"
-    },
-    {
-      "city": "대전",
-      "date": "2026년 5월 8일",
-      "venue": "대전컨벤션센터",
-      "status": "준비 중",
-      "statusColor": "#95a5a6"
-    },
-    {
-      "city": "인천",
-      "date": "2026년 5월 22일",
-      "venue": "인천 남동체육관",
-      "status": "준비 중",
-      "statusColor": "#95a5a6"
     }
   ],
   "past": [

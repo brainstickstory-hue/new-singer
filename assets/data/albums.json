@@ -1,11 +1,11 @@
 {
   "latest": {
-    "title": "밤의 노래",
+    "title": "아침의 노래",
     "subtitle": "정규 3집",
     "year": 2024,
     "month": "12월",
     "description": "새로운 도전과 실험이 담긴 앨범입니다. 다양한 장르를 넘나들며 음악적 성장을 보여주는 12곡이 수록되어 있습니다.",
-    "image": "assets/images/album-3.jpg",
+    "image": "assets/images/new-album.png",
     "tracks": [
       "시작의 끝 (Intro)",
       "함께 걷는 길 (Title)",
@@ -13,12 +13,7 @@
       "Midnight Dreams",
       "너에게",
       "별이 빛나는 밤",
-      "Journey",
-      "마음의 소리",
-      "Rain",
-      "다시 만날 날",
-      "희망의 노래",
-      "새로운 시작 (Outro)"
+      "Journey"    
     ],
     "links": {
       "streaming": "#",
