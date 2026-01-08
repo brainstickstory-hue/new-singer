@@ -528,6 +528,297 @@
     }
 
     // ===================================
+    // Lightbox Gallery
+    // ===================================
+    
+    function initLightbox() {
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImage = document.getElementById('lightbox-image');
+        const lightboxCaption = document.getElementById('lightbox-caption');
+        const lightboxClose = document.querySelector('.lightbox-close');
+        const lightboxPrev = document.querySelector('.lightbox-prev');
+        const lightboxNext = document.querySelector('.lightbox-next');
+        
+        if (!lightbox || !lightboxImage) return;
+        
+        let currentImages = [];
+        let currentIndex = 0;
+        
+        // 갤러리 페이지의 모든 이미지 수집 (공연 영상 카드는 제외)
+        function collectGalleryImages() {
+            const images = [];
+            // video-card는 제외하고 이미지 수집
+            const cards = document.querySelectorAll('.card:not(.video-card) .card-image img, .gallery-card img');
+            
+            cards.forEach((img, index) => {
+                // video-card 내의 이미지는 제외
+                if (img.closest('.video-card')) {
+                    return;
+                }
+                
+                if (img.src && !img.src.includes('data:')) {
+                    images.push({
+                        src: img.src,                        
+                        title: img.closest('.card')?.querySelector('.card-title')?.textContent || ''
+                    });
+                }
+            });
+            
+            return images;
+        }
+        
+        // 라이트박스 열기
+        function openLightbox(index) {
+            currentImages = collectGalleryImages();
+            if (currentImages.length === 0) return;
+            
+            currentIndex = index >= 0 && index < currentImages.length ? index : 0;
+            updateLightboxImage();
+            
+            lightbox.classList.add('active');
+            document.body.classList.add('lightbox-open');
+            lightbox.focus();
+            
+            // 이전/다음 버튼 표시 여부
+            if (currentImages.length > 1) {
+                lightboxPrev.style.display = 'flex';
+                lightboxNext.style.display = 'flex';
+            } else {
+                lightboxPrev.style.display = 'none';
+                lightboxNext.style.display = 'none';
+            }
+        }
+        
+        // 라이트박스 닫기
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.classList.remove('lightbox-open');
+            currentImages = [];
+            currentIndex = 0;
+        }
+        
+        // 라이트박스 이미지 업데이트
+        function updateLightboxImage() {
+            if (currentImages.length === 0 || currentIndex < 0 || currentIndex >= currentImages.length) return;
+            
+            const image = currentImages[currentIndex];
+            lightboxImage.src = image.src;
+            lightboxImage.alt = image.alt;
+            
+            // 캡션 업데이트
+            if (lightboxCaption) {
+                const captionText = image.title || image.alt;
+                lightboxCaption.textContent = captionText;
+                lightboxCaption.style.display = captionText ? 'block' : 'none';
+            }
+        }
+        
+        // 다음 이미지
+        function nextImage() {
+            if (currentImages.length === 0) return;
+            currentIndex = (currentIndex + 1) % currentImages.length;
+            updateLightboxImage();
+        }
+        
+        // 이전 이미지
+        function prevImage() {
+            if (currentImages.length === 0) return;
+            currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+            updateLightboxImage();
+        }
+        
+        // 이미지 클릭 이벤트 연결
+        function attachImageClickEvents() {
+            // 갤러리 카드만 선택 (공연 영상 카드는 제외)
+            const cards = document.querySelectorAll('.gallery-card, .card:not(.video-card)');
+            
+            // video-card의 링크가 정상 작동하도록 보장
+            const videoCards = document.querySelectorAll('.video-card');
+            videoCards.forEach(card => {
+                const links = card.querySelectorAll('a');
+                links.forEach(link => {
+                    // video-card 내의 링크는 항상 정상 작동
+                    link.addEventListener('click', function(e) {
+                        // 링크가 정상적으로 작동하도록 아무것도 방해하지 않음
+                        e.stopPropagation(); // 상위 요소의 이벤트 전파만 방지
+                    });
+                });
+            });
+            
+            cards.forEach((card, index) => {
+                const img = card.querySelector('img');
+                if (!img) return;
+                
+                // video-card는 라이트박스에서 제외
+                if (card.classList.contains('video-card')) {
+                    return;
+                }
+                
+                // 클릭 가능하도록 스타일 추가
+                card.style.cursor = 'pointer';
+                
+                // 갤러리 카드 내의 링크 기본 동작 방지
+                const links = card.querySelectorAll('a');
+                links.forEach(link => {
+                    // "더 보기" 같은 버튼 링크는 제외
+                    if (!link.classList.contains('btn-link') && !link.closest('.btn')) {
+                        link.addEventListener('click', function(e) {
+                            // 이미지나 카드 영역 클릭 시에만 링크 동작 방지
+                            if (e.target === img || img.contains(e.target) || card.contains(e.target)) {
+                                e.preventDefault();
+                                e.stopPropagation();
+                            }
+                        });
+                    }
+                });
+                
+                // 이미지나 카드 클릭 시 라이트박스 열기
+                function handleImageClick(e) {
+                    // 버튼 클릭은 무시
+                    if (e.target.tagName === 'BUTTON' || e.target.closest('button')) {
+                        return;
+                    }
+                    
+                    // "더 보기" 같은 버튼 링크는 무시
+                    if (e.target.tagName === 'A' && (e.target.classList.contains('btn-link') || e.target.closest('.btn'))) {
+                        return;
+                    }
+                    
+                    // video-card는 무시
+                    if (e.target.closest('.video-card')) {
+                        return;
+                    }
+                    
+                    // 링크 기본 동작 방지
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    // 해당 이미지의 인덱스 찾기
+                    const allImages = collectGalleryImages();
+                    const clickedImg = card.querySelector('img');
+                    if (clickedImg) {
+                        const imgIndex = allImages.findIndex(img => img.src === clickedImg.src);
+                        openLightbox(imgIndex >= 0 ? imgIndex : 0);
+                    }
+                }
+                
+                // 카드와 이미지에 클릭 이벤트 추가
+                card.addEventListener('click', handleImageClick);
+                if (img) {
+                    img.addEventListener('click', handleImageClick);
+                }
+                
+                // 터치 이벤트 지원
+                let touchStartX = 0;
+                let touchStartY = 0;
+                
+                card.addEventListener('touchstart', function(e) {
+                    touchStartX = e.touches[0].clientX;
+                    touchStartY = e.touches[0].clientY;
+                }, { passive: true });
+                
+                card.addEventListener('touchend', function(e) {
+                    if (!touchStartX || !touchStartY) return;
+                    
+                    const touchEndX = e.changedTouches[0].clientX;
+                    const touchEndY = e.changedTouches[0].clientY;
+                    const diffX = touchStartX - touchEndX;
+                    const diffY = touchStartY - touchEndY;
+                    
+                    // 스와이프가 아닌 탭인 경우 (5px 이내)
+                    if (Math.abs(diffX) < 5 && Math.abs(diffY) < 5) {
+                        const allImages = collectGalleryImages();
+                        const clickedImg = card.querySelector('img');
+                        if (clickedImg) {
+                            const imgIndex = allImages.findIndex(img => img.src === clickedImg.src);
+                            openLightbox(imgIndex >= 0 ? imgIndex : 0);
+                        }
+                    }
+                    
+                    touchStartX = 0;
+                    touchStartY = 0;
+                }, { passive: true });
+            });
+        }
+        
+        // 닫기 버튼 이벤트
+        if (lightboxClose) {
+            lightboxClose.addEventListener('click', closeLightbox);
+        }
+        
+        // 배경 클릭 시 닫기
+        lightbox.addEventListener('click', function(e) {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+        
+        // 이전/다음 버튼 이벤트
+        if (lightboxPrev) {
+            lightboxPrev.addEventListener('click', function(e) {
+                e.stopPropagation();
+                prevImage();
+            });
+        }
+        
+        if (lightboxNext) {
+            lightboxNext.addEventListener('click', function(e) {
+                e.stopPropagation();
+                nextImage();
+            });
+        }
+        
+        // 키보드 네비게이션
+        document.addEventListener('keydown', function(e) {
+            if (!lightbox.classList.contains('active')) return;
+            
+            switch(e.key) {
+                case 'Escape':
+                    closeLightbox();
+                    break;
+                case 'ArrowLeft':
+                    e.preventDefault();
+                    prevImage();
+                    break;
+                case 'ArrowRight':
+                    e.preventDefault();
+                    nextImage();
+                    break;
+            }
+        });
+        
+        // 라이트박스 내 이미지 스와이프 지원 (터치)
+        let lightboxTouchStartX = 0;
+        
+        lightbox.addEventListener('touchstart', function(e) {
+            if (e.target === lightboxImage || lightboxImage.contains(e.target)) {
+                lightboxTouchStartX = e.touches[0].clientX;
+            }
+        }, { passive: true });
+        
+        lightbox.addEventListener('touchend', function(e) {
+            if (!lightboxTouchStartX) return;
+            
+            const touchEndX = e.changedTouches[0].clientX;
+            const diffX = lightboxTouchStartX - touchEndX;
+            
+            // 50px 이상 스와이프한 경우
+            if (Math.abs(diffX) > 50) {
+                if (diffX > 0) {
+                    nextImage(); // 오른쪽으로 스와이프 = 다음 이미지
+                } else {
+                    prevImage(); // 왼쪽으로 스와이프 = 이전 이미지
+                }
+            }
+            
+            lightboxTouchStartX = 0;
+        }, { passive: true });
+        
+        // 이미지 클릭 이벤트 초기화
+        attachImageClickEvents();
+    }
+
+    // ===================================
     // Initialize All Functions
     // ===================================
     
@@ -546,6 +837,9 @@
             renderAlbumsPage();
         } else if (currentPage === 'performances.html') {
             renderPerformancesPage();
+        } else if (currentPage === 'gallery.html' || currentPage === 'index.html') {
+            // 갤러리 페이지와 메인 페이지의 갤러리 섹션에서 라이트박스 사용
+            initLightbox();
         }
     }
 

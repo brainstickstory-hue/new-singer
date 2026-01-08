@@ -697,6 +697,211 @@ img {
 }
 
 /* ===================================
+   Lightbox Styles
+   =================================== */
+
+.lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    z-index: 10000;
+    opacity: 0;
+    transition: opacity var(--transition-speed);
+    overflow: hidden;
+}
+
+.lightbox.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+}
+
+.lightbox-content {
+    position: relative;
+    max-width: 90vw;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox-content img {
+    max-width: 100%;
+    max-height: 85vh;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    animation: lightboxFadeIn 0.3s ease-out;
+}
+
+@keyframes lightboxFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.lightbox-caption {
+    margin-top: 1rem;
+    color: white;
+    text-align: center;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    max-width: 90vw;
+}
+
+.lightbox-close,
+.lightbox-prev,
+.lightbox-next {
+    position: fixed;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all var(--transition-speed);
+    z-index: 10001;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.lightbox-close:hover,
+.lightbox-prev:hover,
+.lightbox-next:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: scale(1.1);
+}
+
+.lightbox-close:active,
+.lightbox-prev:active,
+.lightbox-next:active {
+    transform: scale(0.95);
+}
+
+.lightbox-close {
+    top: 20px;
+    right: 20px;
+    background-color: rgba(255, 255, 255, 0.25) !important;
+    border-color: rgba(255, 255, 255, 0.6) !important;
+}
+
+.lightbox-close svg {
+    width: 24px;
+    height: 24px;
+    stroke-width: 3;
+}
+
+.lightbox-close:hover {
+    background-color: rgba(255, 255, 255, 0.35) !important;
+    border-color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.lightbox-prev {
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.lightbox-next {
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.lightbox-prev:hover {
+    transform: translateY(-50%) scale(1.1);
+}
+
+.lightbox-next:hover {
+    transform: translateY(-50%) scale(1.1);
+}
+
+.lightbox-prev:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
+.lightbox-next:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
+/* 모바일에서 버튼 크기 조정 */
+@media (max-width: 768px) {
+    .lightbox-close,
+    .lightbox-prev,
+    .lightbox-next {
+        width: 44px;
+        height: 44px;
+    }
+    
+    .lightbox-close {
+        top: 10px;
+        right: 10px;
+    }
+    
+    .lightbox-prev {
+        left: 10px;
+    }
+    
+    .lightbox-next {
+        right: 10px;
+    }
+    
+    .lightbox-content {
+        max-width: 95vw;
+    }
+    
+    .lightbox-content img {
+        max-height: 80vh;
+    }
+    
+    .lightbox-caption {
+        font-size: 0.875rem;
+        padding: 0.5rem;
+    }
+}
+
+/* 터치 디바이스를 위한 추가 스타일 */
+@media (hover: none) and (pointer: coarse) {
+    .lightbox-close,
+    .lightbox-prev,
+    .lightbox-next {
+        background-color: rgba(255, 255, 255, 0.2);
+        border-color: rgba(255, 255, 255, 0.4);
+    }
+}
+
+/* 접근성: 포커스 스타일 */
+.lightbox-close:focus,
+.lightbox-prev:focus,
+.lightbox-next:focus {
+    outline: 3px solid rgba(255, 255, 255, 0.5);
+    outline-offset: 2px;
+}
+
+/* 라이트박스가 열려있을 때 body 스크롤 방지 */
+body.lightbox-open {
+    overflow: hidden;
+}
+
+/* ===================================
    Print Styles
    =================================== */
 
@@ -715,5 +920,9 @@ img {
     * {
         background: white !important;
         color: black !important;
+    }
+    
+    .lightbox {
+        display: none !important;
     }
 }

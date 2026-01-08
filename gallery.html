@@ -83,8 +83,10 @@
                 
                 <div class="grid grid-3">
                     <article class="card">
-                        <div class="card-image" style="height: 300px;" role="img" aria-label="공연 사진">
-                            🎤
+                        <div class="card-image" style="height: 300px; display: flex; align-items: center; justify-content: center; background-color: #f4f5fa; overflow: hidden;" role="img" aria-label="공연 사진">
+                            <!-- 실제 공연 사진이 있을 경우 아래 img 태그의 src 값을 채워주세요 -->
+                            <img src="assets/images/main-gallary-2.jpeg" alt="서울 콘서트 2025 공연 사진" style="width: 100%; height: 100%; object-fit: cover; display: block;" loading="lazy" onerror="this.style.display='none'; this.parentElement.innerHTML = '🎤';">
+                            <!-- 이미지가 없으면 이모지(🎤)로 대체됩니다 -->
                         </div>
                         <div class="card-content">
                             <h3 class="card-title">서울 콘서트 2025</h3>
@@ -153,7 +155,7 @@
                 <div class="grid grid-4">
                     <article class="card">
                         <div class="card-image" style="height: 250px;" role="img" aria-label="화보 사진">
-                            📸
+                            <img src="assets/images/main-gallary-2.jpeg" alt="서울 콘서트 2025 공연 사진" style="width: 100%; height: 100%; object-fit: cover; display: block;" loading="lazy" onerror="this.style.display='none'; this.parentElement.innerHTML = '🎤';">
                         </div>
                         <div class="card-content">
                             <h3 class="card-title">매거진 A</h3>
@@ -241,8 +243,8 @@
                 
                 <div class="grid grid-2">
                     <article class="card">
-                        <div class="card-image" style="height: 300px;" role="img" aria-label="비하인드 사진">
-                            🎬
+                        <div class="card-image" style="aspect-ratio: 1 / 1; overflow: hidden;" role="img" aria-label="비하인드 사진">
+                            <img src="assets/images/main-gallary-2.jpeg" alt="서울 콘서트 2025 공연 사진" style="width: 100%; height: 100%; object-fit: cover; display: block;" loading="lazy" onerror="this.style.display='none'; this.parentElement.innerHTML = '🎤';">
                         </div>
                         <div class="card-content">
                             <h3 class="card-title">뮤직비디오 촬영</h3>
@@ -255,7 +257,7 @@
                     </article>
                     
                     <article class="card">
-                        <div class="card-image" style="height: 300px;" role="img" aria-label="비하인드 사진">
+                        <div class="card-image" style="aspect-ratio: 1 / 1; overflow: hidden;" role="img" aria-label="비하인드 사진">
                             🎙️
                         </div>
                         <div class="card-content">
@@ -269,7 +271,7 @@
                     </article>
                     
                     <article class="card">
-                        <div class="card-image" style="height: 300px;" role="img" aria-label="비하인드 사진">
+                        <div class="card-image" style="aspect-ratio: 1 / 1; overflow: hidden;" role="img" aria-label="비하인드 사진">
                             🎼
                         </div>
                         <div class="card-content">
@@ -283,7 +285,7 @@
                     </article>
                     
                     <article class="card">
-                        <div class="card-image" style="height: 300px;" role="img" aria-label="비하인드 사진">
+                        <div class="card-image" style="aspect-ratio: 1 / 1; overflow: hidden;" role="img" aria-label="비하인드 사진">
                             🎯
                         </div>
                         <div class="card-content">
@@ -294,108 +296,11 @@
                                 하나의 퍼포먼스를 만들어가는 과정.
                             </p>
                         </div>
-                    </article>
-                    
-                    <article class="card">
-                        <div class="card-image" style="height: 300px;" role="img" aria-label="비하인드 사진">
-                            📝
-                        </div>
-                        <div class="card-content">
-                            <h3 class="card-title">작사 노트</h3>
-                            <p class="card-text">가사 작업 과정</p>
-                            <p class="card-text">
-                                일상에서 느낀 감정들을 가사로 풀어내는 시간. 
-                                진솔한 이야기를 담기 위해 고민합니다.
-                            </p>
-                        </div>
-                    </article>
-                    
-                    <article class="card">
-                        <div class="card-image" style="height: 300px;" role="img" aria-label="비하인드 사진">
-                            🎪
-                        </div>
-                        <div class="card-content">
-                            <h3 class="card-title">리허설</h3>
-                            <p class="card-text">공연 전 최종 점검</p>
-                            <p class="card-text">
-                                무대 위에서 마지막으로 확인하는 모든 것들. 
-                                최고의 공연을 위한 준비 과정입니다.
-                            </p>
-                        </div>
-                    </article>
+                    </article>    
                 </div>
             </div>
         </section>
-
-        <!-- Fan Photos -->
-        <section class="section">
-            <div class="container">
-                <h2 class="section-title">팬들과 함께</h2>
-                
-                <div class="grid grid-3">
-                    <article class="card">
-                        <div class="card-image" style="height: 250px;" role="img" aria-label="팬미팅 사진">
-                            💝
-                        </div>
-                        <div class="card-content">
-                            <h3 class="card-title">팬미팅 2025</h3>
-                            <p class="card-text">팬들과의 특별한 만남</p>
-                        </div>
-                    </article>
-                    
-                    <article class="card">
-                        <div class="card-image" style="height: 250px;" role="img" aria-label="팬사인회 사진">
-                            ✍️
-                        </div>
-                        <div class="card-content">
-                            <h3 class="card-title">팬사인회</h3>
-                            <p class="card-text">앨범 발매 기념</p>
-                        </div>
-                    </article>
-                    
-                    <article class="card">
-                        <div class="card-image" style="height: 250px;" role="img" aria-label="팬 이벤트 사진">
-                            🎁
-                        </div>
-                        <div class="card-content">
-                            <h3 class="card-title">생일 이벤트</h3>
-                            <p class="card-text">팬들의 깜짝 서프라이즈</p>
-                        </div>
-                    </article>
-                    
-                    <article class="card">
-                        <div class="card-image" style="height: 250px;" role="img" aria-label="공연 후 사진">
-                            🌟
-                        </div>
-                        <div class="card-content">
-                            <h3 class="card-title">공연 후 인사</h3>
-                            <p class="card-text">관객들과의 소통</p>
-                        </div>
-                    </article>
-                    
-                    <article class="card">
-                        <div class="card-image" style="height: 250px;" role="img" aria-label="팬 이벤트 사진">
-                            🎉
-                        </div>
-                        <div class="card-content">
-                            <h3 class="card-title">데뷔 기념일</h3>
-                            <p class="card-text">팬들과 함께한 축하</p>
-                        </div>
-                    </article>
-                    
-                    <article class="card">
-                        <div class="card-image" style="height: 250px;" role="img" aria-label="온라인 팬미팅 사진">
-                            💻
-                        </div>
-                        <div class="card-content">
-                            <h3 class="card-title">온라인 팬미팅</h3>
-                            <p class="card-text">전 세계 팬들과 소통</p>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
-
+     
     </main>
 
     <footer>
@@ -408,6 +313,30 @@
             </div>
         </div>
     </footer>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="이미지 확대 보기" tabindex="-1">
+        <button class="lightbox-close" aria-label="닫기" title="닫기 (ESC)">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+        </button>
+        <button class="lightbox-prev" aria-label="이전 이미지" title="이전 이미지 (←)">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+        </button>
+        <button class="lightbox-next" aria-label="다음 이미지" title="다음 이미지 (→)">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+        </button>
+        <div class="lightbox-content">
+            <img id="lightbox-image" src="" alt="" />
+            <div class="lightbox-caption" id="lightbox-caption"></div>
+        </div>
+    </div>
 
     <script src="assets/js/main.js"></script>
 </body>
