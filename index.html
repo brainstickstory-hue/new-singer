@@ -462,7 +462,7 @@
             <div class="section-content text-center">
                 <h2 class="section-title">Contact</h2>
                 <p style="font-size: 1.125rem; color: hsl(var(--muted-foreground)); margin-bottom: 2rem;">
-                    공연 문의 및 협업 제안은 아래 연락처로 부탁드립니다.
+                    공연 문의 및 협업 제안은 이메일 또는 아래 양식을 통해 부탁드립니다.
                 </p>
 
                 <div class="space-y-6">
@@ -472,8 +472,92 @@
                             angel@yoona.com
                         </a>
                     </div>
+                </div>
 
-                    
+                <div style="max-width: 800px; margin: 2rem auto 0;">
+                    <div class="card">
+                        <div class="card-content">
+                                                        
+                            <form id="contact-form-index" style="text-align: left;">
+                                <div class="form-group">
+                                    <label for="name-index">이름 또는 단체명 <span style="color: hsl(var(--foreground));">*</span></label>
+                                    <input 
+                                        type="text" 
+                                        id="name-index" 
+                                        name="name" 
+                                        required
+                                        aria-required="true"
+                                        placeholder="이름 또는 단체명"
+                                    >
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="email-index">이메일 <span style="color: hsl(var(--foreground));">*</span></label>
+                                    <input 
+                                        type="email" 
+                                        id="email-index" 
+                                        name="email" 
+                                        required
+                                        aria-required="true"
+                                        placeholder="example@email.com"
+                                    >
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="phone-index">연락처</label>
+                                    <input 
+                                        type="tel" 
+                                        id="phone-index" 
+                                        name="phone"
+                                        placeholder="010-1234-5678"
+                                    >
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="subject-index">제목 <span style="color: hsl(var(--foreground));">*</span></label>
+                                    <input 
+                                        type="text" 
+                                        id="subject-index" 
+                                        name="subject" 
+                                        required
+                                        aria-required="true"
+                                        placeholder="문의 제목을 입력하세요"
+                                    >
+                                </div>                                                             
+                                
+                                <div class="form-group">
+                                    <label for="message-index">메시지 <span style="color: hsl(var(--foreground));">*</span></label>
+                                    <textarea 
+                                        id="message-index" 
+                                        name="message" 
+                                        required
+                                        aria-required="true"
+                                        placeholder="메시지를 입력하세요"
+                                    ></textarea>
+                                </div>
+                                
+                                <div style="margin-bottom: var(--spacing-sm);">
+                                    <label style="display: flex; align-items: center; cursor: pointer; font-weight: normal;">
+                                        <input 
+                                            type="checkbox" 
+                                            name="privacy" 
+                                            required
+                                            style="margin-right: var(--spacing-xs); width: auto;"
+                                        >
+                                        <span>개인정보 수집 및 이용에 동의합니다 <span style="color: hsl(var(--foreground));">*</span></span>
+                                    </label>
+                                    <p style="font-size: 0.875rem; color: hsl(var(--muted-foreground)); margin-top: var(--spacing-xs); margin-left: 1.5rem;">
+                                        수집된 정보는 문의 응답 목적으로만 사용되며, 
+                                        별도의 동의 없이 제3자에게 제공되지 않습니다.
+                                    </p>
+                                </div>
+                                
+                                <button type="submit" class="btn btn-primary" style="width: 100%; font-size: 1.1rem;">
+                                    메시지 보내기
+                                </button>
+                            </form>
+                        </div>
+                    </div>
                 </div>
 
                 <a href="contact.html" class="btn btn-link" style="display: block; text-align: center; margin: 2rem auto 0;">
