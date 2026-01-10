@@ -80,11 +80,12 @@
                     <div>
                         <h2 style="font-family: var(--font-heading); font-size: 2.5rem; margin-bottom: 0.5rem;">${album.title}</h2>
                         <p style="color: hsl(var(--muted-foreground)); margin-bottom: 1rem;">
-                            ${album.subtitle} · ${album.year}년 ${album.month} 발매
+                            ${album.subtitle} · 발매일 : ${album.year}년 ${album.month} ${album.day || 1}일
                         </p>
-                        <p style="color: hsl(var(--muted-foreground)); line-height: 1.6;">
+                        <p style="color: hsl(var(--muted-foreground)); line-height: 1.6; margin-bottom: 1rem;">
                             ${album.description}
                         </p>
+                        ${album.links && album.links.streaming ? `<div style="margin-bottom: 1rem;"><a href="${album.links.streaming}" class="btn btn-primary">스트리밍</a></div>` : ''}
                     </div>
                     
                     <div>
@@ -117,10 +118,11 @@
                     </div>
                     <div class="card-content">
                         <h3 class="card-title">${album.title}</h3>
-                        <p class="card-text">${album.subtitle} · ${album.year}년 ${album.month}</p>
+                        <p class="card-text">${album.subtitle} · 발매일 : ${album.year}년 ${album.month} ${album.day || 1}일</p>
                         <p style="margin: 1rem 0; color: hsl(var(--muted-foreground)); line-height: 1.6;">
                             ${album.description}
                         </p>
+                        ${album.links && album.links.streaming ? `<div style="margin: 1rem 0;"><a href="${album.links.streaming}" class="btn btn-primary">스트리밍</a></div>` : ''}
                         <details style="margin-top: 1rem;">
                             <summary style="cursor: pointer; font-weight: 600; color: hsl(var(--foreground)); padding: 0.5rem 0;">
                                 수록곡 보기
@@ -144,18 +146,25 @@
         const container = document.querySelector('#singles');
         if (!container || !singles) return;
         
-        const singlesHTML = singles.map(single => `
+        const singlesHTML = singles.map(single => {
+            // 이미지가 있으면 이미지 사용, 없으면 gradient와 icon 사용
+            const imageContent = single.image 
+                ? `<img src="${single.image}" alt="${single.title} 앨범 커버" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.style.display='none'; this.parentElement.style.background='${single.gradient || 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'}'; this.parentElement.innerHTML = '<div style=\\'width: 100%; height: 100%; background: ${single.gradient || 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'}; display: flex; align-items: center; justify-content: center; font-size: 3rem;\\'>${single.icon || '🎵'}</div>';">`
+                : `<div style="width: 100%; height: 100%; background: ${single.gradient || 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'}; display: flex; align-items: center; justify-content: center; font-size: 3rem;">${single.icon || '🎵'}</div>`;
+            
+            return `
             <article class="card">
                 <div class="card-image">
-                    <div style="width: 100%; height: 100%; background: ${single.gradient}; display: flex; align-items: center; justify-content: center; font-size: 3rem;">${single.icon}</div>
+                    ${imageContent}
                 </div>
                 <div class="card-content">
                     <h3 class="card-title">${single.title}</h3>
-                    <p class="card-text">${single.type} · ${single.year}년 ${single.month}</p>
-                    <p class="card-text">${single.description}</p>
+                    <p class="card-text">${single.type} · 발매일 : ${single.year}년 ${single.month} ${single.day || 1}일</p>
+                    ${single.links && single.links.streaming ? `<div style="margin-top: 1rem; text-align: center;"><a href="${single.links.streaming}" class="btn btn-primary" style="font-size: 0.875rem; padding: 0.5rem 1rem;">스트리밍</a></div>` : ''}
                 </div>
             </article>
-        `).join('');
+            `;
+        }).join('');
         
         container.innerHTML = singlesHTML;
     }

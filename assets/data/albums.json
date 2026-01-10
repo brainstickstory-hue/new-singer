@@ -1,11 +1,12 @@
 {
   "latest": {
-    "title": "아침의 노래",
+    "title": "아마릴리스",
     "subtitle": "정규 3집",
-    "year": 2024,
-    "month": "12월",
+    "year": 2025,
+    "month": "4월",
+    "day": 30,
     "description": "새로운 도전과 실험이 담긴 앨범입니다. 다양한 장르를 넘나들며 음악적 성장을 보여주는 12곡이 수록되어 있습니다.",
-    "image": "assets/images/new-album.png",
+    "image": "assets/images/albums/10.jpg",
     "tracks": [
       "시작의 끝 (Intro)",
       "함께 걷는 길 (Title)",
@@ -27,6 +28,7 @@
       "subtitle": "정규 2집",
       "year": 2022,
       "month": "6월",
+      "day": 10,
       "description": "더욱 성숙해진 음악 세계를 담은 두 번째 정규 앨범. 타이틀곡 '함께'는 음원차트 1위를 기록하며 큰 사랑을 받았습니다.",
       "image": "assets/images/album-2.jpg",
       "tracks": [
@@ -51,6 +53,7 @@
       "subtitle": "정규 1집",
       "year": 2020,
       "month": "3월",
+      "day": 20,
       "description": "데뷔 앨범으로 신선한 감성과 뛰어난 보컬 실력으로 많은 주목을 받았습니다. 신인상 3관왕을 달성했습니다.",
       "image": "assets/images/album-1.jpg",
       "tracks": [
@@ -70,63 +73,111 @@
   ],
   "singles": [
     {
-      "id": "single-6",
-      "title": "겨울 이야기",
+      "id": "single-9",
+      "title": "내가 더 사랑하니까",
       "type": "디지털 싱글",
-      "year": 2024,
-      "month": "12월",
-      "description": "겨울을 맞아 발매한 감성 발라드 싱글",
-      "icon": "🎹",
+      "year": 2023,
+      "month": "4월",
+      "day": 27,
+      "links": {
+    "streaming": "#" },
+      "image": "assets/images/albums/9.jpg",
       "gradient": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
     },
     {
-      "id": "single-5",
-      "title": "Summer Vibes",
+      "id": "single-8",
+      "title": "옷깃을 여미고(2022 Ver.)",
       "type": "미니앨범",
-      "year": 2024,
-      "month": "7월",
-      "description": "여름 특별 미니앨범 (5곡 수록)",
-      "icon": "🎸",
+      "year": 2022,
+      "month": "9월",
+      "day": 21,
+      "links": {
+    "streaming": "#" },
+      "image": "assets/images/albums/8.jpg",
       "gradient": "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)"
     },
     {
-      "id": "single-4",
-      "title": "Collaboration",
+      "id": "single-7",
+      "title": "문득",
       "type": "디지털 싱글",
-      "year": 2023,
-      "month": "11월",
-      "description": "유명 프로듀서와의 콜라보레이션",
-      "icon": "🎺",
+      "year": 2021,
+      "month": "6월",
+      "day": 1,
+      "links": {
+    "streaming": "#" },
+      "image": "assets/images/albums/7.jpg",
       "gradient": "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)"
     },
     {
-      "id": "single-3",
-      "title": "봄날",
-      "type": "디지털 싱글",
-      "year": 2023,
-      "month": "3월",
-      "description": "봄을 맞이하는 희망의 메시지",
-      "icon": "🎻",
-      "gradient": "linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)"
-    },
-    {
-      "id": "single-2",
-      "title": "Acoustic Live",
+      "id": "single-6",
+      "title": "알지 못했죠",
       "type": "라이브 앨범",
-      "year": 2022,
-      "month": "12월",
-      "description": "어쿠스틱 라이브 공연 실황",
-      "icon": "🎤",
+      "year": 2020,
+      "month": "1월",
+      "day": 9,
+      "links": {
+    "streaming": "#" },
+      "image": "assets/images/albums/6.jpg",
       "gradient": "linear-gradient(135deg, #fa709a 0%, #fee140 100%)"
     },
     {
-      "id": "single-1",
-      "title": "Remix Special",
+      "id": "single-5",
+      "title": "옷깃을 여미고",
+      "type": "라이브 앨범",
+      "year": 2018,
+      "month": "12월",
+      "day": 20,
+      "links": {
+    "streaming": "#" },
+      "image": "assets/images/albums/5.jpg",
+      "gradient": "linear-gradient(135deg, #fa709a 0%, #fee140 100%)"
+    },
+    {
+      "id": "single-4",
+      "title": "바람이 시원한날",
       "type": "리믹스 앨범",
-      "year": 2021,
-      "month": "9월",
-      "description": "인기곡 리믹스 버전 모음",
-      "icon": "🎧",
+      "year": 2017,
+      "month": "6월",
+      "day": 27,
+      "links": {
+    "streaming": "#" },
+      "image": "assets/images/albums/4.jpg",
+      "gradient": "linear-gradient(135deg, #30cfd0 0%, #330867 100%)"
+    },
+    {
+      "id": "single3",
+      "title": "Only You",
+      "type": "리믹스 앨범",
+      "year": 2017,
+      "month": "2월",
+      "day": 27,
+      "links": {
+    "streaming": "#" },
+      "image": "assets/images/albums/3.jpg",
+      "gradient": "linear-gradient(135deg, #30cfd0 0%, #330867 100%)"
+    },
+    {
+      "id": "single-2",
+      "title": "좋아좋아",
+      "type": "리믹스 앨범",
+      "year": 2014,
+      "month": "5월",
+      "day": 12,
+      "links": {
+    "streaming": "#" },
+      "image": "assets/images/albums/2.jpg",
+      "gradient": "linear-gradient(135deg, #30cfd0 0%, #330867 100%)"
+    },
+    {
+      "id": "single-1",
+      "title": "변치않아요",
+      "type": "리믹스 앨범",
+      "year": 2010,
+      "month": "6월",
+      "day": 3,
+      "links": {
+    "streaming": "https://vibe.naver.com/today?playTrackItems=2223078" },
+      "image": "assets/images/albums/1.jpg",
       "gradient": "linear-gradient(135deg, #30cfd0 0%, #330867 100%)"
     }
   ],
@@ -148,25 +199,8 @@
       "views": "8,900,000",
       "image": "assets/images/mv-2.jpg",
       "link": "#"
-    },
-    {
-      "id": "mv-3",
-      "title": "첫 만남",
-      "description": "정규 1집 타이틀곡",
-      "year": 2020,
-      "views": "12,500,000",
-      "image": "assets/images/mv-3.jpg",
-      "link": "#"
-    },
-    {
-      "id": "mv-4",
-      "title": "겨울 이야기",
-      "description": "디지털 싱글",
-      "year": 2024,
-      "views": "3,100,000",
-      "image": "assets/images/mv-4.jpg",
-      "link": "#"
     }
+        
   ],
   "streamingPlatforms": [
     {
