@@ -828,10 +828,34 @@
     }
 
     // ===================================
+    // Scroll to Top on Page Load/Refresh
+    // ===================================
+    
+    function scrollToTopOnLoad() {
+        // 페이지 로드 시 항상 상단으로 스크롤
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: 'auto' // 즉시 스크롤 (애니메이션 없음)
+        });
+    }
+    
+    // 브라우저 뒤로/앞으로 이동 시에도 상단으로 스크롤
+    window.addEventListener('pageshow', function(event) {
+        // bfcache에서 복원된 경우에도 스크롤 위치 초기화
+        if (event.persisted) {
+            scrollToTopOnLoad();
+        }
+    });
+
+    // ===================================
     // Initialize All Functions
     // ===================================
     
     function init() {
+        // 페이지 로드 시 상단으로 스크롤
+        scrollToTopOnLoad();
+        
         initMobileMenu();
         setActiveNavLink();
         initSmoothScroll();
