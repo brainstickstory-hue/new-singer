@@ -31,6 +31,79 @@
     
     <!-- Stylesheet -->
     <link rel="stylesheet" href="assets/css/style.css">
+    
+    <!-- Scroll Reveal Animation -->
+    <style>
+        /* Initial state - hidden */
+        .reveal,
+        .reveal-item {
+            opacity: 0;
+            transform: translateY(24px);
+        }
+        
+        /* Visible state - animated */
+        .reveal.revealed,
+        .reveal-item.revealed {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 1200ms cubic-bezier(0.22, 1, 0.36, 1),
+                        transform 1200ms cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        
+        /* Stagger delay for cards within the same container */
+        .reveal-item.revealed[data-stagger] {
+            transition-delay: calc(var(--stagger-index, 0) * 100ms);
+        }
+        
+        /* Header initial animation - slide down from top */
+        header {
+            animation: headerSlideDown 1800ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+        
+        @keyframes headerSlideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-100%);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Hero section initial animation - slide up from bottom */
+        .hero {
+            animation: heroSlideUp 5000ms cubic-bezier(0.22, 1, 0.36, 1) 200ms forwards;
+            opacity: 0;
+            transform: translateY(40px);
+        }
+        
+        @keyframes heroSlideUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Respect prefers-reduced-motion */
+        @media (prefers-reduced-motion: reduce) {
+            .reveal,
+            .reveal-item {
+                opacity: 1;
+                transform: none;
+            }
+            .reveal.revealed,
+            .reveal-item.revealed {
+                transition: none;
+            }
+            header,
+            .hero {
+                animation: none;
+                opacity: 1;
+                transform: none;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Skip to main content for accessibility -->
@@ -117,7 +190,7 @@
         </section>
 
         <!-- Profile Summary -->
-        <section id="profile" class="section section-alt">
+        <section id="profile" class="section section-alt reveal">
             <div class="section-content">
                 <div class="space-y-6">
                     <h2 class="section-title">프로필</h2>
@@ -184,7 +257,7 @@
         </section>
 
         <!-- Albums Summary -->
-        <section id="albums" class="section">
+        <section id="albums" class="section reveal">
             <div class="section-content-wide">
                 <div class="section-header">
                     <h2 class="section-title">앨범</h2>
@@ -192,7 +265,7 @@
                 </div>
 
                 <div class="grid grid-2">
-                    <article class="card">
+                    <article class="card reveal-item">
                         <div class="card-image">
                             <img src="assets/images/albums/10.jpg" alt="아침의 노래 앨범 커버" onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #667eea 0%, #764ba2 100%)';">
                         </div>
@@ -210,7 +283,7 @@
                             <p class="card-text">3rd Album</p>
                         </div>
                     </article>
-                    <article class="card">
+                    <article class="card reveal-item">
                         <div class="card-image">
                             <img src="assets/images/albums/9.jpg" alt="아침의 노래 앨범 커버" onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #667eea 0%, #764ba2 100%)';">
                         </div>
@@ -228,7 +301,7 @@
                             <p class="card-text">3rd Album</p>
                         </div>
                     </article>
-                    <article class="card">
+                    <article class="card reveal-item">
                         <div class="card-image">
                             <img src="assets/images/albums/8.jpg" alt="아침의 노래 앨범 커버" onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #667eea 0%, #764ba2 100%)';">
                         </div>
@@ -246,7 +319,7 @@
                             <p class="card-text">3rd Album</p>
                         </div>
                     </article>
-                    <article class="card">
+                    <article class="card reveal-item">
                         <div class="card-image">
                             <img src="assets/images/albums/7.jpg" alt="계절의 끝 앨범 커버" onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #f093fb 0%, #f5576c 100%)';">
                         </div>
@@ -277,7 +350,7 @@
         </section>
 
         <!-- Gallery Summary -->
-        <section id="gallery" class="section section-alt">
+        <section id="gallery" class="section section-alt reveal">
             <div class="section-content-wide">
                 <div class="section-header">
                     <h2 class="section-title">갤러리</h2>
@@ -292,32 +365,32 @@
                         gap: 1.5rem;
                     "
                 >
-                    <div class="card gallery-card">
+                    <div class="card gallery-card reveal-item">
                         <div class="card-image" style="aspect-ratio: 1 / 1; overflow: hidden;">
                             <img src="assets/images/main-gallary-1.jpeg" style="width: 100%; height: 100%; object-fit: cover; cursor: zoom-in;" onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #667eea 0%, #764ba2 100%)';">
                         </div>
                     </div>
-                    <div class="card gallery-card">
+                    <div class="card gallery-card reveal-item">
                         <div class="card-image" style="aspect-ratio: 1 / 1; overflow: hidden;">
                             <img src="assets/images/main-gallary-2.jpeg" alt="갤러리 이미지 2" style="width: 100%; height: 100%; object-fit: cover; cursor: zoom-in;" onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #f093fb 0%, #f5576c 100%)';">
                         </div>
                     </div>
-                    <div class="card gallery-card">
+                    <div class="card gallery-card reveal-item">
                         <div class="card-image" style="aspect-ratio: 1 / 1; overflow: hidden;">
                             <img src="assets/images/main-gallary-3.jpeg" alt="갤러리 이미지 3" style="width: 100%; height: 100%; object-fit: cover; cursor: zoom-in;" onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)';">
                         </div>
                     </div>
-                    <div class="card gallery-card">
+                    <div class="card gallery-card reveal-item">
                         <div class="card-image" style="aspect-ratio: 1 / 1; overflow: hidden;">
                             <img src="assets/images/main-gallary-4.jpeg" alt="갤러리 이미지 4" style="width: 100%; height: 100%; object-fit: cover; cursor: zoom-in;" onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)';">
                         </div>
                     </div>
-                    <div class="card gallery-card">
+                    <div class="card gallery-card reveal-item">
                         <div class="card-image" style="aspect-ratio: 1 / 1; overflow: hidden;">
                             <img src="assets/images/main-gallary-5.jpeg" alt="갤러리 이미지 5" style="width: 100%; height: 100%; object-fit: cover; cursor: zoom-in;" onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #feada6 0%, #f5efef 100%)';">
                         </div>
                     </div>
-                    <div class="card gallery-card">
+                    <div class="card gallery-card reveal-item">
                         <div class="card-image" style="aspect-ratio: 1 / 1; overflow: hidden;">
                             <img src="assets/images/main-gallary-6.jpeg" alt="갤러리 이미지 6" style="width: 100%; height: 100%; object-fit: cover; cursor: zoom-in;" onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #feada6 0%, #f5efef 100%)';">
                         </div>
@@ -348,7 +421,7 @@
         </section>
 
         <!-- Performances Summary -->
-        <section id="performances" class="section">
+        <section id="performances" class="section reveal">
             <div class="section-content-wide">
                 <div class="section-header">
                     <h2 class="section-title">공연 영상</h2>
@@ -356,7 +429,7 @@
                 </div>
 
                 <div class="grid grid-2">
-                    <article class="card video-card">
+                    <article class="card video-card reveal-item">
                         <div class="card-image" style="aspect-ratio: 16 / 9; overflow: hidden; position:relative; background: #000;">
                             <a href="https://www.youtube.com/watch?v=hSRjlf6iX8I&list=PLkcOmq5UT3yMO_ylOinbR5G4Ec0mp5o07" 
                                target="_blank" rel="noopener" 
@@ -379,7 +452,7 @@
                         </div>
                     </article>
 
-                    <article class="card video-card">
+                    <article class="card video-card reveal-item">
                         <div class="card-image" style="aspect-ratio: 16 / 9; overflow: hidden; position:relative; background: #000;">
                             <a href="https://www.youtube.com/watch?v=qRXoflRacLg&list=PLkcOmq5UT3yOkH-2zWdsTRm8UqWH-vGTL&index=1" 
                                target="_blank" rel="noopener" 
@@ -402,7 +475,7 @@
                         </div>
                     </article>
 
-                    <article class="card video-card">
+                    <article class="card video-card reveal-item">
                         <div class="card-image" style="aspect-ratio: 16 / 9; overflow: hidden; position:relative; background: #000;">
                             <a href="https://www.youtube.com/watch?v=Hu46PFQe9AI&list=PLkcOmq5UT3yOkH-2zWdsTRm8UqWH-vGTL&index=13" 
                                target="_blank" rel="noopener" 
@@ -425,7 +498,7 @@
                         </div>
                     </article>
 
-                    <article class="card video-card">
+                    <article class="card video-card reveal-item">
                         <div class="card-image" style="aspect-ratio: 16 / 9; overflow: hidden; position:relative; background:#000;">
                             <a href="https://www.youtube.com/watch?v=hSRjlf6iX8I&list=PLkcOmq5UT3yMO_ylOinbR5G4Ec0mp5o07" 
                                target="_blank" rel="noopener" 
@@ -458,7 +531,7 @@
         </section>
 
         <!-- Contact Summary -->
-        <section id="contact" class="section section-alt">
+        <section id="contact" class="section section-alt reveal">
             <div class="section-content text-center">
                 <h2 class="section-title">Contact</h2>
                 <p style="font-size: 1.125rem; color: hsl(var(--muted-foreground)); margin-bottom: 2rem;">
@@ -475,7 +548,7 @@
                 </div>
 
                 <div style="max-width: 800px; margin: 2rem auto 0;">
-                    <div class="card">
+                    <div class="card reveal-item">
                         <div class="card-content">
                                                         
                             <form id="contact-form-index" style="text-align: left;">
@@ -611,5 +684,73 @@
     </div>
 
     <script src="assets/js/main.js"></script>
+    
+    <!-- Scroll Reveal Animation Script -->
+    <script>
+        (function() {
+            // Check for prefers-reduced-motion
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            
+            if (prefersReducedMotion) {
+                // If reduced motion is preferred, reveal all elements immediately
+                document.querySelectorAll('.reveal, .reveal-item').forEach(element => {
+                    element.classList.add('revealed');
+                });
+                return;
+            }
+            
+            // IntersectionObserver options
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+            
+            // Callback function for sections
+            const sectionObserverCallback = (entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('revealed');
+                        // Unobserve after animation triggers (performance optimization)
+                        observer.unobserve(entry.target);
+                    }
+                });
+            };
+            
+            // Callback function for cards/items with stagger effect
+            const itemObserverCallback = (entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const container = entry.target.closest('.grid, .gallery-grid-3x2');
+                        if (container) {
+                            // Get all reveal-items in the same container
+                            const items = Array.from(container.querySelectorAll('.reveal-item'));
+                            const index = items.indexOf(entry.target);
+                            
+                            // Add stagger delay
+                            entry.target.style.setProperty('--stagger-index', index);
+                            entry.target.setAttribute('data-stagger', '');
+                        }
+                        entry.target.classList.add('revealed');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            };
+            
+            // Create observers
+            const sectionObserver = new IntersectionObserver(sectionObserverCallback, observerOptions);
+            const itemObserver = new IntersectionObserver(itemObserverCallback, observerOptions);
+            
+            // Observe sections
+            document.querySelectorAll('.reveal').forEach(element => {
+                sectionObserver.observe(element);
+            });
+            
+            // Observe cards/items
+            document.querySelectorAll('.reveal-item').forEach(element => {
+                itemObserver.observe(element);
+            });
+        })();
+    </script>
 </body>
 </html>
