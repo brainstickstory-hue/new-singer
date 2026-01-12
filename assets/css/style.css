@@ -510,6 +510,12 @@ textarea {
     margin-top: var(--spacing-xl);
 }
 
+.footer-content {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 var(--spacing-sm);
+}
+
 .footer-grid {
     display: grid;
     grid-template-columns: 1fr;
