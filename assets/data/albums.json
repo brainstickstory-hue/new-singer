@@ -24,7 +24,7 @@
       "month": "4월",
       "day": 27,
       "links": {
-    "streaming": "#" },
+    "streaming": "https://vibe.naver.com/today?playTrackItems=64074697" },
       "image": "assets/images/albums/9.jpg",
       "gradient": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
     },
@@ -35,7 +35,7 @@
       "month": "9월",
       "day": 21,
       "links": {
-    "streaming": "#" },
+    "streaming": "https://vibe.naver.com/today?playTrackItems=57611499" },
       "image": "assets/images/albums/8.jpg",
       "gradient": "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)"
     },
@@ -46,7 +46,7 @@
       "month": "6월",
       "day": 1,
       "links": {
-    "streaming": "#" },
+    "streaming": "https://vibe.naver.com/today?playTrackItems=48495198" },
       "image": "assets/images/albums/7.jpg",
       "gradient": "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)"
     },
@@ -57,7 +57,7 @@
       "month": "1월",
       "day": 9,
       "links": {
-    "streaming": "#" },
+    "streaming": "https://vibe.naver.com/today?playTrackItems=39487385" },
       "image": "assets/images/albums/6.jpg",
       "gradient": "linear-gradient(135deg, #fa709a 0%, #fee140 100%)"
     },
@@ -68,7 +68,7 @@
       "month": "12월",
       "day": 20,
       "links": {
-    "streaming": "#" },
+    "streaming": "https://vibe.naver.com/today?playTrackItems=24464463" },
       "image": "assets/images/albums/5.jpg",
       "gradient": "linear-gradient(135deg, #fa709a 0%, #fee140 100%)"
     },
@@ -79,7 +79,7 @@
       "month": "6월",
       "day": 27,
       "links": {
-    "streaming": "#" },
+    "streaming": "https://vibe.naver.com/today?playTrackItems=18094316" },
       "image": "assets/images/albums/4.jpg",
       "gradient": "linear-gradient(135deg, #30cfd0 0%, #330867 100%)"
     },
@@ -90,7 +90,7 @@
       "month": "2월",
       "day": 27,
       "links": {
-    "streaming": "#" },
+    "streaming": "https://vibe.naver.com/today?playTrackItems=16463977" },
       "image": "assets/images/albums/3.jpg",
       "gradient": "linear-gradient(135deg, #30cfd0 0%, #330867 100%)"
     },
@@ -101,7 +101,7 @@
       "month": "5월",
       "day": 12,
       "links": {
-    "streaming": "#" },
+    "streaming": "https://vibe.naver.com/today?playTrackItems=4226200" },
       "image": "assets/images/albums/2.jpg",
       "gradient": "linear-gradient(135deg, #30cfd0 0%, #330867 100%)"
     },
@@ -123,7 +123,7 @@
       "month": "6월",
       "day": 3,
       "links": {
-    "streaming": "https://vibe.naver.com/today?playTrackItems=2223078" },
+    "streaming": "https://vibe.naver.com/today?playTrackItems=2223079" },
       "image": "assets/images/albums/1.jpg",
       "gradient": "linear-gradient(135deg, #30cfd0 0%, #330867 100%)"
     }

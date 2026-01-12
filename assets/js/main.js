@@ -760,6 +760,81 @@
     }
 
     // ===================================
+    // More Button Click Handler
+    // ===================================
+    
+    function initMoreButtons() {
+        // 메인 페이지의 모든 '더보기' 버튼들에 클릭 이벤트 핸들러 추가
+        const moreButtons = document.querySelectorAll('.btn-link');
+        
+        moreButtons.forEach(button => {
+            // 버튼을 inline-block으로 변경하여 콘텐츠 크기만큼만 클릭 영역이 되도록 함
+            const computedStyle = window.getComputedStyle(button);
+            if (computedStyle.display === 'block') {
+                button.style.display = 'inline-block';
+                
+                // 부모 요소에 text-align: center를 추가하여 버튼을 가운데 정렬
+                const parent = button.parentElement;
+                if (parent) {
+                    const parentComputedStyle = window.getComputedStyle(parent);
+                    // 부모 요소에 이미 text-align이 설정되어 있지 않은 경우에만 추가
+                    if (!parentComputedStyle.textAlign || parentComputedStyle.textAlign === 'start' || parentComputedStyle.textAlign === 'left') {
+                        parent.style.textAlign = 'center';
+                    }
+                }
+            }
+            
+            // 버튼 내부의 모든 자식 요소에 pointer-events: none 설정
+            // 이렇게 하면 버튼 자체만 클릭 가능하고, 자식 요소를 클릭해도 버튼의 클릭 이벤트가 발생
+            const buttonChildren = button.querySelectorAll('*');
+            buttonChildren.forEach(child => {
+                child.style.pointerEvents = 'none';
+            });
+            
+            // 클릭 이벤트 핸들러 - 버튼의 실제 콘텐츠 영역만 클릭 가능하도록
+            button.addEventListener('click', function(e) {
+                // 버튼의 실제 콘텐츠 영역(bounding box) 확인
+                const rect = button.getBoundingClientRect();
+                const x = e.clientX;
+                const y = e.clientY;
+                
+                // 클릭 위치가 버튼의 실제 경계 내에 있는지 확인
+                // 경계선을 포함하지 않고 내부만 확인 (약간의 여유를 두어 정확도 향상)
+                const padding = 1; // 1px 여유
+                if (x < rect.left + padding || 
+                    x > rect.right - padding || 
+                    y < rect.top + padding || 
+                    y > rect.bottom - padding) {
+                    // 버튼 경계 밖을 클릭한 경우 링크 이동 방지
+                    e.preventDefault();
+                    e.stopPropagation();
+                    return false;
+                }
+                
+                // 버튼 내부를 클릭한 경우 정상적으로 링크 이동
+                return true;
+            });
+            
+            // 추가 안전장치: mousedown 이벤트에서도 검증
+            button.addEventListener('mousedown', function(e) {
+                const rect = button.getBoundingClientRect();
+                const x = e.clientX;
+                const y = e.clientY;
+                
+                const padding = 1;
+                if (x < rect.left + padding || 
+                    x > rect.right - padding || 
+                    y < rect.top + padding || 
+                    y > rect.bottom - padding) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    return false;
+                }
+            });
+        });
+    }
+
+    // ===================================
     // Initialize All Functions
     // ===================================
     
@@ -777,6 +852,7 @@
         initFormValidation();
         initLazyLoading();
         updateFooterYear();
+        initMoreButtons();
         
         // Load page-specific data
         const currentPage = window.location.pathname.split('/').pop() || 'index.html';
