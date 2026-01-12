@@ -45,26 +45,13 @@
         // Render Latest Album
         renderLatestAlbum(data.latest);
         
-        // Render Previous Albums
-        renderPreviousAlbums(data.previous);
-        
         // Render Singles
         renderSingles(data.singles);
-        
-        // Render Music Videos
-        renderMusicVideos(data.musicVideos);
-        
-        // Render Streaming Platforms
-        renderStreamingPlatforms(data.streamingPlatforms);
     }
     
     function renderLatestAlbum(album) {
         const container = document.querySelector('#latest-album');
         if (!container || !album) return;
-        
-        const tracksHTML = album.tracks.map((track, index) => 
-            `<li>${track}</li>`
-        ).join('');
         
         container.innerHTML = `
             <div style="display: inline-block; background-color: hsl(var(--foreground)); color: hsl(var(--background)); padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem;">
@@ -87,59 +74,9 @@
                         </p>
                         ${album.links && album.links.streaming ? `<div style="margin-bottom: 1rem;"><a href="${album.links.streaming}" class="btn btn-primary">스트리밍</a></div>` : ''}
                     </div>
-                    
-                    <div>
-                        <h3 style="font-weight: 600; margin-bottom: 0.75rem;">수록곡</h3>
-                        <ol style="color: hsl(var(--muted-foreground)); line-height: 1.8; margin-left: 1.25rem;">
-                            ${tracksHTML}
-                        </ol>
-                    </div>
-                    
-                    <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-                        <a href="${album.links.streaming}" class="btn btn-primary">스트리밍</a>
-                        ${album.links.purchase ? `<a href="${album.links.purchase}" class="btn btn-outline">구매하기</a>` : ''}
-                    </div>
                 </div>
             </div>
         `;
-    }
-    
-    function renderPreviousAlbums(albums) {
-        const container = document.querySelector('#previous-albums');
-        if (!container || !albums) return;
-        
-        const albumsHTML = albums.map(album => {
-            const tracksHTML = album.tracks.map(track => `<li>${track}</li>`).join('');
-            
-            return `
-                <article class="card">
-                    <div class="card-image">
-                        <img src="${album.image}" alt="${album.title} 앨범 커버" onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #f093fb 0%, #f5576c 100%)';">
-                    </div>
-                    <div class="card-content">
-                        <h3 class="card-title">${album.title}</h3>
-                        <p class="card-text">${album.subtitle} · 발매일 : ${album.year}년 ${album.month} ${album.day || 1}일</p>
-                        <p style="margin: 1rem 0; color: hsl(var(--muted-foreground)); line-height: 1.6;">
-                            ${album.description}
-                        </p>
-                        ${album.links && album.links.streaming ? `<div style="margin: 1rem 0;"><a href="${album.links.streaming}" class="btn btn-primary">스트리밍</a></div>` : ''}
-                        <details style="margin-top: 1rem;">
-                            <summary style="cursor: pointer; font-weight: 600; color: hsl(var(--foreground)); padding: 0.5rem 0;">
-                                수록곡 보기
-                            </summary>
-                            <ol style="margin-top: 0.75rem; color: hsl(var(--muted-foreground)); line-height: 1.8; margin-left: 1.25rem;">
-                                ${tracksHTML}
-                            </ol>
-                        </details>
-                        <div style="margin-top: 1rem;">
-                            <a href="${album.links.streaming}" class="btn btn-link">스트리밍 ›</a>
-                        </div>
-                    </div>
-                </article>
-            `;
-        }).join('');
-        
-        container.innerHTML = albumsHTML;
     }
     
     function renderSingles(singles) {
@@ -159,7 +96,7 @@
                 </div>
                 <div class="card-content">
                     <h3 class="card-title">${single.title}</h3>
-                    <p class="card-text">${single.type} · 발매일 : ${single.year}년 ${single.month} ${single.day || 1}일</p>
+                    <p class="card-text">발매일 : ${single.year}년 ${single.month} ${single.day || 1}일</p>
                     ${single.links && single.links.streaming ? `<div style="margin-top: 1rem; text-align: center;"><a href="${single.links.streaming}" class="btn btn-primary" style="font-size: 0.875rem; padding: 0.5rem 1rem;">스트리밍</a></div>` : ''}
                 </div>
             </article>
@@ -167,47 +104,6 @@
         }).join('');
         
         container.innerHTML = singlesHTML;
-    }
-    
-    function renderMusicVideos(videos) {
-        const container = document.querySelector('#music-videos');
-        if (!container || !videos) return;
-        
-        const videosHTML = videos.map(video => `
-            <article class="card video-card">
-                <div class="card-image">
-                    <img src="${video.image}" alt="${video.title} 뮤직비디오" onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #667eea 0%, #764ba2 100%)';">
-                    <div class="video-overlay">
-                        <div class="play-button">
-                            <div class="play-icon"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-content">
-                    <h3 class="card-title">${video.title}</h3>
-                    <p class="card-text">${video.description} · ${video.year}</p>
-                    <p class="card-text">조회수: ${video.views}회</p>
-                </div>
-            </article>
-        `).join('');
-        
-        container.innerHTML = videosHTML;
-    }
-    
-    function renderStreamingPlatforms(platforms) {
-        const container = document.querySelector('#streaming-platforms');
-        if (!container || !platforms) return;
-        
-        const platformsHTML = platforms.map(platform => `
-            <a href="${platform.link}" class="card" style="text-decoration: none;">
-                <div class="card-content text-center">
-                    <div style="font-size: 3rem; margin-bottom: 0.5rem;">${platform.icon}</div>
-                    <h3 class="card-title">${platform.name}</h3>
-                </div>
-            </a>
-        `).join('');
-        
-        container.innerHTML = platformsHTML;
     }
 
     // ===================================
@@ -840,21 +736,40 @@
         });
     }
     
-    // 브라우저 뒤로/앞으로 이동 시에도 상단으로 스크롤
-    window.addEventListener('pageshow', function(event) {
-        // bfcache에서 복원된 경우에도 스크롤 위치 초기화
-        if (event.persisted) {
-            scrollToTopOnLoad();
+    // 페이지가 어떻게 로드되었는지 확인하는 함수
+    function getNavigationType() {
+        if (performance.getEntriesByType) {
+            const navEntries = performance.getEntriesByType('navigation');
+            if (navEntries.length > 0) {
+                return navEntries[0].type;
+            }
         }
-    });
+        // Fallback for older browsers
+        if (performance.navigation) {
+            const navType = performance.navigation.type;
+            if (navType === 0) return 'navigate';
+            if (navType === 1) return 'reload';
+            if (navType === 2) return 'back_forward';
+        }
+        return 'navigate';
+    }
+    
+    // 브라우저의 기본 스크롤 복원 기능 활성화
+    if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'auto';
+    }
 
     // ===================================
     // Initialize All Functions
     // ===================================
     
     function init() {
-        // 페이지 로드 시 상단으로 스크롤
-        scrollToTopOnLoad();
+        // 새로고침 또는 직접 URL 입력으로 페이지를 로드한 경우에만 상단으로 스크롤
+        // 뒤로가기/앞으로가기로 이동한 경우에는 브라우저가 스크롤 위치를 복원하도록 함
+        const navType = getNavigationType();
+        if (navType === 'reload' || navType === 'navigate') {
+            scrollToTopOnLoad();
+        }
         
         initMobileMenu();
         setActiveNavLink();

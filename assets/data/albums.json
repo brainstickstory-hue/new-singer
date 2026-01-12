@@ -10,72 +10,16 @@
     "tracks": [
       "시작의 끝 (Intro)",
       "함께 걷는 길 (Title)",
-      "봄날의 기억",
-      "Midnight Dreams",
-      "너에게",
-      "별이 빛나는 밤",
-      "Journey"    
+      "봄날의 기억"
     ],
     "links": {
-      "streaming": "#",
-      "purchase": "#"
+      "streaming": "#"
     }
   },
-  "previous": [
-    {
-      "id": "album-2",
-      "title": "계절의 끝",
-      "subtitle": "정규 2집",
-      "year": 2022,
-      "month": "6월",
-      "day": 10,
-      "description": "더욱 성숙해진 음악 세계를 담은 두 번째 정규 앨범. 타이틀곡 '함께'는 음원차트 1위를 기록하며 큰 사랑을 받았습니다.",
-      "image": "assets/images/album-2.jpg",
-      "tracks": [
-        "Overture",
-        "함께 (Title)",
-        "그날의 약속",
-        "Summer Breeze",
-        "너의 목소리",
-        "밤하늘",
-        "Memories",
-        "다시 시작",
-        "계절의 끝",
-        "Epilogue"
-      ],
-      "links": {
-        "streaming": "#"
-      }
-    },
-    {
-      "id": "album-1",
-      "title": "시작",
-      "subtitle": "정규 1집",
-      "year": 2020,
-      "month": "3월",
-      "day": 20,
-      "description": "데뷔 앨범으로 신선한 감성과 뛰어난 보컬 실력으로 많은 주목을 받았습니다. 신인상 3관왕을 달성했습니다.",
-      "image": "assets/images/album-1.jpg",
-      "tracks": [
-        "Hello World (Intro)",
-        "첫 만남 (Title)",
-        "설렘",
-        "Spring Day",
-        "너를 그리며",
-        "Dream",
-        "함께한 시간",
-        "시작"
-      ],
-      "links": {
-        "streaming": "#"
-      }
-    }
-  ],
   "singles": [
     {
       "id": "single-9",
       "title": "내가 더 사랑하니까",
-      "type": "디지털 싱글",
       "year": 2023,
       "month": "4월",
       "day": 27,
@@ -87,7 +31,6 @@
     {
       "id": "single-8",
       "title": "옷깃을 여미고(2022 Ver.)",
-      "type": "미니앨범",
       "year": 2022,
       "month": "9월",
       "day": 21,
@@ -99,7 +42,6 @@
     {
       "id": "single-7",
       "title": "문득",
-      "type": "디지털 싱글",
       "year": 2021,
       "month": "6월",
       "day": 1,
@@ -111,7 +53,6 @@
     {
       "id": "single-6",
       "title": "알지 못했죠",
-      "type": "라이브 앨범",
       "year": 2020,
       "month": "1월",
       "day": 9,
@@ -123,7 +64,6 @@
     {
       "id": "single-5",
       "title": "옷깃을 여미고",
-      "type": "라이브 앨범",
       "year": 2018,
       "month": "12월",
       "day": 20,
@@ -135,7 +75,6 @@
     {
       "id": "single-4",
       "title": "바람이 시원한날",
-      "type": "리믹스 앨범",
       "year": 2017,
       "month": "6월",
       "day": 27,
@@ -147,7 +86,6 @@
     {
       "id": "single3",
       "title": "Only You",
-      "type": "리믹스 앨범",
       "year": 2017,
       "month": "2월",
       "day": 27,
@@ -159,7 +97,6 @@
     {
       "id": "single-2",
       "title": "좋아좋아",
-      "type": "리믹스 앨범",
       "year": 2014,
       "month": "5월",
       "day": 12,
@@ -171,7 +108,6 @@
     {
       "id": "single-1",
       "title": "변치않아요",
-      "type": "리믹스 앨범",
       "year": 2010,
       "month": "6월",
       "day": 3,
@@ -179,49 +115,17 @@
     "streaming": "https://vibe.naver.com/today?playTrackItems=2223078" },
       "image": "assets/images/albums/1.jpg",
       "gradient": "linear-gradient(135deg, #30cfd0 0%, #330867 100%)"
-    }
-  ],
-  "musicVideos": [
-    {
-      "id": "mv-1",
-      "title": "함께 걷는 길",
-      "description": "정규 3집 타이틀곡",
-      "year": 2024,
-      "views": "5,200,000",
-      "image": "assets/images/mv-1.jpg",
-      "link": "#"
     },
     {
-      "id": "mv-2",
-      "title": "함께",
-      "description": "정규 2집 타이틀곡",
-      "year": 2022,
-      "views": "8,900,000",
-      "image": "assets/images/mv-2.jpg",
-      "link": "#"
-    }
-        
-  ],
-  "streamingPlatforms": [
-    {
-      "name": "Spotify",
-      "icon": "🎵",
-      "link": "#"
-    },
-    {
-      "name": "Apple Music",
-      "icon": "🎶",
-      "link": "#"
-    },
-    {
-      "name": "YouTube Music",
-      "icon": "📺",
-      "link": "#"
-    },
-    {
-      "name": "Melon",
-      "icon": "🎧",
-      "link": "#"
+      "id": "single-0",
+      "title": "마중",
+      "year": 2010,
+      "month": "6월",
+      "day": 3,
+      "links": {
+    "streaming": "https://vibe.naver.com/today?playTrackItems=2223078" },
+      "image": "assets/images/albums/1.jpg",
+      "gradient": "linear-gradient(135deg, #30cfd0 0%, #330867 100%)"
     }
   ]
 }
